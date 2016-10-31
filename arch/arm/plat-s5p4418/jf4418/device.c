@@ -1318,7 +1318,7 @@ static struct spi_board_info spi_plat_board[] __initdata = {
 		.bus_num         = 0,           /* Note> set bus num, must be smaller than ARRAY_SIZE(spi_plat_device) */
 		.chip_select     = 0,           /* Note> set chip select num, must be smaller than spi cs_num */
 		.controller_data = &spi0_info,
-		.mode            = SPI_MODE_0 | SPI_CPOL | SPI_CPHA,
+		.mode            = SPI_MODE_0,
 	},
 #else
 	[0] = {

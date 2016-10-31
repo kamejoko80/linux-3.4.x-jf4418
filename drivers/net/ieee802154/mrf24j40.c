@@ -91,8 +91,7 @@ struct mrf24j40 {
 #define MRF24J40_READLONG(reg) (1 << 15 | (reg) << 5)
 #define MRF24J40_WRITELONG(reg) (1 << 15 | (reg) << 5 | 1 << 4)
 
-/* Maximum speed to run the device at. TODO: Get the real max value from
- * someone at Microchip since it isn't in the datasheet. */
+/* The datasheet indicates the theoretical maximum for SCK to be 10MHz */
 #define MAX_SPI_SPEED_HZ 1000000
 
 #define printdev(X) (&X->spi->dev)
@@ -362,6 +361,7 @@ static int mrf24j40_tx(struct ieee802154_dev *dev, struct sk_buff *skb)
 		goto err;
 	if (ret == 0) {
 		ret = -ETIMEDOUT;
+		dev_warn(printdev(devrec), "Timeout waiting for TX interrupt\n");
 		goto err;
 	}
 
@@ -477,7 +477,7 @@ static int mrf24j40_filter(struct ieee802154_dev *dev,
 		int i;
 		for (i = 0; i < 8; i++)
 			write_short_reg(devrec, REG_EADR0+i,
-					filt->ieee_addr[i]);
+					filt->ieee_addr[7-i]);
 
 #ifdef DEBUG
 		printk(KERN_DEBUG "Set long addr to: ");

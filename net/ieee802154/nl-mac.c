@@ -317,8 +317,6 @@ static int ieee802154_associate_req(struct sk_buff *skb,
 	u8 page;
 	int ret = -EINVAL;
 
-    printk("ieee802154_associate_req\r\n");
-    
 	if (!info->attrs[IEEE802154_ATTR_CHANNEL] ||
 	    !info->attrs[IEEE802154_ATTR_COORD_PAN_ID] ||
 	    (!info->attrs[IEEE802154_ATTR_COORD_HW_ADDR] &&
@@ -351,11 +349,8 @@ static int ieee802154_associate_req(struct sk_buff *skb,
 			nla_get_u8(info->attrs[IEEE802154_ATTR_CHANNEL]),
 			page,
 			nla_get_u8(info->attrs[IEEE802154_ATTR_CAPABILITY]));
-            
+
 	dev_put(dev);
-    
-    printk("ieee802154_associate_req end\r\n");    
-    
 	return ret;
 }
 
