@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/pdtechvn/linux-3.4.x.svg?branch=master)](https://travis-ci.org/pdtechvn/linux-3.4.x)	
-	
+
+```	
 	Linux kernel release 3.x <http://kernel.org/>
 
 These are the release notes for Linux version 3.  Read them carefully,
@@ -375,4 +376,4 @@ IF SOMETHING GOES WRONG:
 
    gdb'ing a non-running kernel currently fails because gdb (wrongly)
    disregards the starting offset for which the kernel is compiled.
-
+```
