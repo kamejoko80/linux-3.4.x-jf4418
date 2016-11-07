@@ -8,8 +8,8 @@ addons:
    apt:
       packages:
         - wget
-	- git
-	- uboot-mkimage
+        - git
+        - uboot-mkimage
 script:
         - bash -ex build_kernel.sh
 
