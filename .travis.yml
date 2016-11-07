@@ -3,7 +3,7 @@ language: c
 compiler: gcc
 cache: ccache
 env:
-  - ARCH=arm CROSS_COMPILE=arm-cortexa9-linux-gnueabihf- LOCALVERSION=-git$TRAVIS_COMMIT
+  - ARCH=arm CROSS_COMPILE=arm-cortexa9-linux-gnueabihf-
 addons:
    apt:
       packages:
