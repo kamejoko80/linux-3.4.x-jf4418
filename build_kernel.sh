@@ -1,5 +1,11 @@
 #!/bin/bash
 
+git clone https://github.com/pdtechvn/uboot-mkimage.git
+cd uboot-mkimage
+make
+export PATH=$PATH:$PWD
+cd ../
+
 wget https://github.com/pdtechvn/toolschain/raw/master/arm-cortexa9-linux-gnueabihf-4.9.3.tar.xz
 tar -xvf arm-cortexa9-linux-gnueabihf-4.9.3.tar.xz
 
